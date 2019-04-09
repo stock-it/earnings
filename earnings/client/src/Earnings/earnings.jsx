@@ -3,6 +3,7 @@
 import React from 'react';
 import EarningsChartFrame from './earningsChartFrame.jsx';
 import EarningBottomBar from './earningBottomBar.jsx';
+import $ from 'jquery';
 
 class Earnings extends React.Component {
   constructor(props) {
