@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robinhood</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="averagePrice"></div>
+  <div id="earnings"></div>
+  <div id="ratings"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="http://localhost:3001/dist/bundle.js"></script>
+  <script src="http://localhost:3002/dist/bundle.js"></script>  
+  <script src="http://localhost:3003/dist/bundle.js"></script>
+  <script>
+    ReactDOM.render(
+      React.createElement(AveragePrice),
+      document.getElementById('averagePrice')
+    );
+    ReactDOM.render(
+      React.createElement(Earnings),
+      document.getElementById('earnings')
+    );
+    ReactDOM.render(
+      React.createElement(Ratings),
+      document.getElementById('ratings')
+    );  
+  </script>
+</body>
+</html>
