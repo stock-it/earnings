@@ -1,3 +1,20 @@
 body {
     font-family: DIN pro;
 }
+
+#main-container {
+    margin: 0 140px;
+    display: flex;
+}
+
+#main-column {
+    flex-basis: 66%
+}
+
+#minor-column {
+    flex-basis: 27%
+}
+
+#stock-chart {
+    margin-top: 40px;
+}
