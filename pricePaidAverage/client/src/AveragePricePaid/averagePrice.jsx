@@ -55,9 +55,9 @@ class AveragePrice extends React.Component {
     const currentPriceDistance = currentSpot * 20.3 + 9.3;
     // find the spot for average price
     if (averagePrice > currentPrice) {
-      averagePriceDistance = averageSpot * 20.3 + 9.3;
+      averagePriceDistance = averageSpot * 20.3 + 149.3;
     } else {
-      averagePriceDistance = averageSpot * 20.3 + 14;
+      averagePriceDistance = averageSpot * 20.3 + 154;
     }
 
     percentage = Math.floor((currentPrice / averagePrice - 1) * 100);
@@ -72,7 +72,7 @@ class AveragePrice extends React.Component {
    <p className='topic'>Price Paid on Robinhood</p>
    <div className='line'></div>
    <div id = 'compare'>
-    <div style={{ position: 'absolute', left: currentPriceDistance - 27 < 0 ? 0 : currentPriceDistance - 27 }}>
+    <div style={{ position: 'absolute', left: currentPriceDistance + 113 < 0 ? 0 : currentPriceDistance + 113 }}>
       <p id = 'compare'>{compare}</p>
       <p id = 'rightNow'>Right Now</p>
     </div>

@@ -8,11 +8,11 @@ body {
 }
 
 #main-column {
-    flex-basis: 66%
+    flex-basis: 72%
 }
 
 #minor-column {
-    flex-basis: 27%
+    flex-basis: 27.7%
 }
 
 #stock-chart {
