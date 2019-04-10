@@ -27,6 +27,8 @@
     src: url("./fonts/FF_DIN_Pro_Medium_Italic.otf");
 } */
 
+
+
 /* Analyst */
 div.analystSuggestionLineEnd{
  display: inline-block;
@@ -89,4 +91,74 @@ p.readMore{
 
 p.analystCompany{
  color: #8C8C8E;
+}
+
+/* Rating */
+div.EPS-dateIndex{
+ margin: 0 0 0 45px;  
+}
+
+div.EPS-price{
+ margin: 10px 0 23px 0;
+ font-size: 14px;
+ color: #8C8C8E;
+}
+
+div.EPS-date{
+ font-size: 14px;
+ display: inline-block;
+ color: #8C8C8E;
+ margin: 15px 13px 0 13px
+}
+
+span.estCircle{
+ height: 15px;
+ width: 15px;
+ background: rgb(215, 245, 235);
+ position: absolute;
+ border-radius: 50%;
+ margin: 0 0 0 15px;
+}
+
+span.actCircle{
+ height: 15px;
+ width: 15px;
+ background: #23CE99;
+ position: absolute;
+ border-radius: 50%;
+ margin: 0 0 0 15px;
+}
+
+div.EPS-other{
+ display: inline-block;
+ margin: 20px 0 0 80px;
+ font-size: 14px;
+}
+
+span#estimatedCircleExample{
+ height: 15px;
+ width: 15px;
+ background: rgb(215, 245, 235);
+ position: absolute;
+ border-radius: 50%;
+ margin: 20px 0 0 -30px;
+}
+
+span#actualCircleExample{
+ height: 15px;
+ width: 15px;
+ background: #23CE99;
+ position: absolute;
+ border-radius: 50%;
+ margin: 20px 0 0 -30px;
+}
+
+p#Estimated{
+ position: relative;
+ margin: 8px 0 8px 0;
+}
+
+p#Actual{
+ position: relative;
+ margin: 8px 0 8px 0;
 }

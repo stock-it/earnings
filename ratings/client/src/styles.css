@@ -1,98 +1,334 @@
 @font-face {
     font-family: DIN pro;
-    src: url("../../public/fonts/FF_DIN_Pro_Regular_Italic.otf");
+    src: url("/fonts/FF_DIN_Pro_Regular_Italic.otf");
 }
 
 @font-face {
     font-family: DIN pro;
     font-weight: 900;
-    src: url("../../public/fonts/FF_DIN_Pro_Black_Italic.otf");
+    src: url("/fonts/FF_DIN_Pro_Black_Italic.otf");
 }
 
 @font-face {
     font-family: DIN pro;
     font-weight: 100;
-    src: url("../../public/fonts/FF_DIN_Pro_Light_Italic.otf");
+    src: url("/fonts/FF_DIN_Pro_Light_Italic.otf");
 }
 
 @font-face {
     font-family: DIN pro;
     font-weight: 700;
-    src: url("../../public/fonts/FF_DIN_Pro_Bold_Italic.otf");
+    src: url("/fonts/FF_DIN_Pro_Bold_Italic.otf");
 }
 
 @font-face {
     font-family: DIN pro;
     font-weight: 500;
-    src: url("../../public/fonts/FF_DIN_Pro_Medium_Italic.otf");
-} */
-
-/* Rating */
-div.EPS-dateIndex{
- margin: 0 0 0 45px;  
+    src: url("/fonts/FF_DIN_Pro_Medium_Italic.otf");
 }
 
-div.EPS-price{
- margin: 10px 0 23px 0;
- font-size: 14px;
- color: #8C8C8E;
+/* General */
+
+body#gary {
+    font-family: DIN pro;
+    font-size: 13px;
 }
 
-div.EPS-date{
- font-size: 14px;
+div#displayTop {
+    margin: 30px 0 0 0;
+}
+
+h1#stockName{
+    display: inline;
+    margin: 0 50px 0 20px;
+}
+
+p.topic {
+    font-size: 26px;
+    line-height: 30px;
+    letter-spacing: -0.14px;
+}
+
+h3#stockId {
+    display: inline;
+    margin: 0 0 0 20px;
+}
+
+h3#stockTicker {
+    display: inline;
+    margin: 0 0 0 20px;
+}
+
+div.Components {
+ margin: 30px 0 30px 0;
+ width: 676px;
+}
+
+/* Price Paid Average */
+div.line {
+ height: 1px;
+ width: 676px;
+ background: #8C8C8E;
+ margin: 20px 0 37px 0;
+}
+
+div.priceChartBar{
  display: inline-block;
- color: #8C8C8E;
- margin: 15px 13px 0 13px
 }
 
-span.estCircle{
- height: 15px;
- width: 15px;
- background: rgb(215, 245, 235);
- position: absolute;
- border-radius: 50%;
- margin: 0 0 0 15px;
+div.priceChartDiv {
+ width: 11px;
+ margin: 10px 9.3px 15px 0px;
+ display: inline-block;
 }
 
-span.actCircle{
+div#average-line{
+ position: absolution;
+ background: #21CE99;
+ margin: 0 4.8px 0 -4.8px;
+ height: 136px;
+ width: 1px;
+}
+
+div#compare {
+ position: relative;
+ margin: 0 0 80px 0;
+}
+
+p#compare{
+ color: #23CE99;
+ margin: 0 0 0 0;
+ font-size: 15px;
+ text-align: center;
+ font-weight: 500;
+}
+
+p#rightNow{
+ color: #23CE99;
+ margin: 0 0 0 0;
+ font-size: 12px;
+ text-align: center;
+}
+
+div.bottomLine{
+ margin: -13px 0 13px 0;
+}
+
+span#bottomFrontLine{
+ height: 1px;
+ background-color: #8C8C8E;
+ display: inline-block;
+}
+
+span#circle{
  height: 15px;
  width: 15px;
  background: #23CE99;
- position: absolute;
+ display: inline-block;
  border-radius: 50%;
- margin: 0 0 0 15px;
+ margin: 6px 0 0 0;
+ position: absolute;
 }
 
-div.EPS-other{
+span#bottomRareLine{
+ height: 1px;
+ background-color: #8C8C8E;
  display: inline-block;
- margin: 20px 0 0 80px;
+}
+
+div#lowest{
+ font-size: 13px;
+ text-align: left;
+ width: 90px;
+ display: inline-block;
+ color: #8C8C8E;
+ font-weight: 500;
+}
+
+p#lowest{
+ font-weight: 400;
+ margin: 0 0 0 0;
+}
+
+div#averagePricePaid{
+ display: inline-block;
+ position: absolute;
+ margin: 0 0 0 -10px;
+ font-size: 13px;
+ letter-spacing: 0.25px;
+}
+
+p.averagePricePaid{
+ margin: 0 0 0 0;
+ text-align: center;
+ width: 100px; 
+ font-weight: 500;
+ letter-spacing: 0.25px;
+}
+
+p.averagePricePaid#averagePricePaid{
+ font-weight: 400;
+}
+
+div#highest{
+ font-size: 13px;
+ text-align: right;
+ width: 90px;
+ position: absolute;
+ display: inline-block;
+ left: 595px;
+ color: #8C8C8E;
+ font-weight: 500;
+ letter-spacing: 0.25px;
+}
+
+p#highest{
+ margin: 0 0 0 0;
+ font-weight: 400;
+}
+
+div#percentageChart{
+ height: 134px;
+ width: 134px;
+ border-radius: 50%;
+ background: #172B26;
+ position: absolute;
+ margin: 0 0 0 30px;
+}
+
+p#percentageOfRatings{
+ font-size: 26px;
+ color: #23CE99;
+ text-align: center;
+ margin: 40px 0 5px 0;
+}
+
+p#numberOfRatings{
+ font-size: 13px;
+ color: #23CE99;
+ text-align: center;
+ top: 20%;
+ margin: 0 0 0 0;
+}
+
+div#analystSuggestions{
+ position: relative;
+ /* display: inline-block; */
+ margin: 10px 0 0 213px;
+}
+
+div.analystSuggestion{
+ position: relative;
+ display: inline-block;
+ margin: 5px 0 25px 0;
+ width: 25px;
  font-size: 14px;
 }
 
-span#estimatedCircleExample{
- height: 15px;
- width: 15px;
- background: rgb(215, 245, 235);
- position: absolute;
- border-radius: 50%;
- margin: 20px 0 0 -30px;
+div#buy{
+ display: inline-block;
+ width: 800px;
 }
 
-span#actualCircleExample{
- height: 15px;
- width: 15px;
- background: #23CE99;
- position: absolute;
- border-radius: 50%;
- margin: 20px 0 0 -30px;
+div.buyLineFront{
+ display: inline-block;
+ color: #23CE99;
+ border-radius: 50px 0 0 50px;
+ margin: 0 0 2px 0;
 }
 
-p#Estimated{
+div.analystSuggestionPercentage{
+ display: inline-block;
  position: relative;
- margin: 8px 0 8px 0;
+ left: 10px;
 }
 
-p#Actual{
+div#analystSuggestion{
+ display: inline-block;
  position: relative;
- margin: 8px 0 8px 0;
+ width: 800px;
+
+}
+
+div.analystSuggestionLineEndBackground{
+ height: 6px;
+ background: white;
+ display: inline-block;
+ margin: 0 0 2px 0;
+ border-radius: 0 50px 50px 0;
+}
+
+div.buyLineFront{
+ display: inline-block;
+ background:#23CE99;
+ height: 6px;
+}
+
+span.buyLineFront{
+ color:#23CE99;
+ margin: 0 0 0 3px;
+}
+
+/* Analyst */
+div.analystSuggestionLineEnd{
+ display: inline-block;
+}
+
+span.suggestionPercentage{
+ display: inline-block;
+}
+
+div.analystSuggestionLineFront{
+ display: inline-block;
+ height: 6px;
+ background: black;
+ margin: 0 3px 2px 0;
+ border-radius: 50px 0 0 50px;
+}
+
+div#analystSummaries{
+ display: inline-block;
+ position: relative;
+ margin: 10px 0 0 213px;
+ font-size: 13px;
+}
+
+div.analystSummary{
+ width: 190px;
+ display: inline-block;
+ vertical-align:top;
+ padding: 10px 12px 30px 22px;
+}
+
+div#buySummary{
+ margin: 0 6px 0 0;
+}
+
+div#sellSummary{
+ margin: 0 0 0 6px;
+}
+
+p.summaryTitle{
+ font-size: 15px;
+ margin: 0 0 0 0;
+}
+
+p.summaryMessage{
+ margin: 5px 0 16px 0;
+}
+
+p.summaryQuotationMark{
+ position: absolute;
+ margin: 4px 0 0 -7px;
+}
+
+p.readMore{
+ font-size: 14px;
+ color:#23CE99;
+ margin: -10px 0 0 0;
+ font: 500;
+}
+
+p.analystCompany{
+ color: #8C8C8E;
 }
