@@ -3,12 +3,13 @@ body {
 }
 
 #main-container {
-    margin: 0 140px;
+    margin: auto;
     display: flex;
 }
 
 #main-column {
     flex: 0 0 67%;
+    margin: auto;
 }
 
 #minor-column {
