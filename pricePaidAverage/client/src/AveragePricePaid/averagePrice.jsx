@@ -44,8 +44,12 @@ class AveragePrice extends React.Component {
       const tempHigh = lowest + barRange * (i + 1);
       let highLight = false;
       let averageLine = false;
-      const occurence = sortPriceData.filter(price => price >= tempLow && price <= tempHigh).length;
-      (averagePrice < tempLow - barRange && tempHigh - barRange <= currentPrice) || (averagePrice > tempLow - barRange && tempHigh >= currentPrice)
+      let occurence = sortPriceData.filter(price => price >= tempLow && price <= tempHigh).length;
+      occurence === 0 ? occurence = 1: null;
+      currentPrice > averagePrice 
+      ? averagePrice < tempLow - barRange && tempHigh - barRange <= currentPrice
+        ? highLight = true : null
+      : averagePrice > tempLow - 2 * barRange && tempHigh >= currentPrice + barRange
         ? highLight = true : null;
       i === currentSpot ? averageLine = true : null;
       allData.push([occurence, highLight, averageLine]);
