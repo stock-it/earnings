@@ -15,17 +15,23 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/data/stocks', (req, res) => {
+priceData = []
+
+app.get('/data/stocks/:id', (req, res) => {
+    db.getPaidPrice(req.params.id, (data) => {
+      priceData = data
+    });
+});
+
+app.get('/data/stocks/', (req, res) => {
   // set Default data equal to 001
-  // if (req.params.id === undefined) {
+  if (priceData.length === 0) {
     db.getPaidPrice('001', (data) => {
       res.status(200).json(data);
     });
-  // } else {
-  //   db.getPaidPrice(req.params.id, (data) => {
-  //     res.status(200).json(data);
-  //   });
-  // }
+  } else {
+      res.status(200).json(priceData);
+    }
 });
 
 app.listen(port, () => {
