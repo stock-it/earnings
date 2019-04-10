@@ -61,7 +61,7 @@ class AveragePrice extends React.Component {
     if (averagePrice > currentPrice) {
       averagePriceDistance = (averageSpot - 4.5 )* 20.3;
     } else {
-      averagePriceDistance = (averageSpot - 4.5 ) * 20.3;
+      averagePriceDistance = (averageSpot - 4.5 ) * 20.3 - 4;
     }
 
     percentage = Math.floor((currentPrice / averagePrice - 1) * 100);
