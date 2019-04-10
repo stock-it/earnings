@@ -93,7 +93,7 @@ class AveragePrice extends React.Component {
     <div style={{ display: 'inline-block' }}>
       <div id = 'lowest'>52 Week Low
       <p id='lowest'>${lowest}</p></div>
-      <div id = 'averagePricePaid' style={{ left: averagePriceDistance }}>
+      <div id = 'averagePricePaid' style={{ left: averagePriceDistance - 108}}>
         <p className='averagePricePaid'>Average Price Paid</p>
         <p className='averagePricePaid' id='averagePricePaid'>${averagePrice}</p>
       </div>
