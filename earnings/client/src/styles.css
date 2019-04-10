@@ -93,7 +93,6 @@ p.analystCompany{
  color: #8C8C8E;
 }
 
-/* Rating */
 div.EPS-dateIndex{
  margin: 0 0 0 45px;  
 }
@@ -108,7 +107,7 @@ div.EPS-date{
  font-size: 14px;
  display: inline-block;
  color: #8C8C8E;
- margin: 15px 13px 0 13px
+ margin: 15px 14px 0 14px
 }
 
 span.estCircle{
@@ -117,7 +116,7 @@ span.estCircle{
  background: rgb(215, 245, 235);
  position: absolute;
  border-radius: 50%;
- margin: 0 0 0 15px;
+ margin: 0 0 0 17px;
 }
 
 span.actCircle{
@@ -126,7 +125,7 @@ span.actCircle{
  background: #23CE99;
  position: absolute;
  border-radius: 50%;
- margin: 0 0 0 15px;
+ margin: 0 0 0 17px;
 }
 
 div.EPS-other{
