@@ -95,6 +95,7 @@ p.analystCompany{
 
 div.EPS-dateIndex{
  margin: 0 0 0 45px;  
+ display: inline;
 }
 
 div.EPS-price{

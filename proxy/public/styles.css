@@ -10,6 +10,7 @@ body {
 #main-column {
     flex: 0 0 67%;
     margin: auto;
+    width: 676px;
 }
 
 #minor-column {
@@ -29,25 +30,10 @@ div#displayTop {
     margin: 30px 0 0 0;
 }
 
-h1#stockName{
-    display: inline;
-    margin: 0 50px 0 20px;
-}
-
 p.topic {
     font-size: 26px;
     line-height: 30px;
     letter-spacing: -0.14px;
-}
-
-h3#stockId {
-    display: inline;
-    margin: 0 0 0 20px;
-}
-
-h3#stockTicker {
-    display: inline;
-    margin: 0 0 0 20px;
 }
 
 div.Components {
