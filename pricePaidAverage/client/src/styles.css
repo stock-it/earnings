@@ -59,7 +59,7 @@ div#average-line{
 }
 
 div#compare {
- /* position: relative; */
+ position: relative;
  margin: 0 10px 75px 0;
 }
 
@@ -147,7 +147,7 @@ div#highest{
  color: #8C8C8E;
  font-weight: 500;
  letter-spacing: 0.25px;
- left: 615px;
+ left: 605px;
 }
 
 p#highest{
