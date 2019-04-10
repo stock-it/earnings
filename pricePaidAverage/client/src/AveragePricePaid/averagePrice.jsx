@@ -71,7 +71,7 @@ class AveragePrice extends React.Component {
   <div className="Components">
    <p className='topic'>Price Paid on Robinhood</p>
    <div className='line'></div>
-   <div id = 'compare' style={{ left: currentPriceDistance - 30 > 0 ? currentPriceDistance - 30 : 0 }}>
+   <div id = 'compare' style={{ left: currentPriceDistance - 33 > 0 ? currentPriceDistance - 33 : 0 }}>
     <div style={{ position: 'absolute'}}>
       <p id = 'compare'>{compare}</p>
       <p id = 'rightNow'>Right Now</p>
