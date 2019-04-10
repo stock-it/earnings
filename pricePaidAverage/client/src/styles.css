@@ -143,9 +143,8 @@ div#highest{
  text-align: right;
  width: 90px;
  position: absolute;
- /* display: inline-block; */
- /* left: 735px; */
- float: right;
+ display: inline-block;
+ left: 735px;
  color: #8C8C8E;
  font-weight: 500;
  letter-spacing: 0.25px;
