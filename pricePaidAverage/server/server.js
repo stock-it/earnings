@@ -17,9 +17,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 priceData = []
 
-app.get('/data/stocks/:id', (req, res) => {
+app.get('/:id', (req, res) => {
     db.getPaidPrice(req.params.id, (data) => {
-      priceData = data
+      priceData = data;
+      res.redirect('/');
     });
 });
 
