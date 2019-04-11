@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Earnings = require('./Earning/EarningScheme');
 
 // const mongoUri = 'mongodb://localhost/stock';
-// const mongoUri = 'mongodb://gary:abcd1234@ds031922.mlab.com:31922/front-end-capstone-project';
+const mongoUri = 'mongodb://gary:abcd1234@ds031922.mlab.com:31922/front-end-capstone-project';
 // const mongoUri = process.env.DATABASEURL;
-const mongoUri = 'mongodb://mongo:27017/stock';
+// const mongoUri = 'mongodb://mongo:27017/stock';
 mongoose.connect(mongoUri, { useNewUrlParser: true },
   (err) => {
     if (err) {
