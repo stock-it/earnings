@@ -111,6 +111,7 @@ div#lowest{
  display: inline-block;
  color: #8C8C8E;
  font-weight: 500;
+ float: left;
 }
 
 p#lowest{
