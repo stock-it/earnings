@@ -14,7 +14,7 @@ class Earnings extends React.Component {
   }
 
   componentDidMount() {
-    $.get('http://localhost:3006/data/earnings', (Data) => {
+    $.get('http://localhost:3002/data/earnings', (Data) => {
     // $.get('//front-end-capstone.herokuapp.com/data/earnings', (Data) => {
       const earningsData = [];
       Data.map(earnings => earningsData.push(earnings));
