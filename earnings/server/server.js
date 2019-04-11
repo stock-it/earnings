@@ -15,17 +15,24 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/data/earnings', (req, res) => {
+earningData = []
+
+app.get('/:id', (req, res) => {
+    db.getEarning(req.params.id, (data) => {
+      earningData = data;
+      res.redirect('/');
+    });
+});
+
+app.get('/data/earnings/', (req, res) => {
   // set Default data equal to 001
-  // if (req.params.id === undefined) {
+  if (earningData.length === 0) {
     db.getEarning('001', (data) => {
       res.status(200).json(data);
     });
-  // } else {
-  //   db.getPaidPrice(req.params.id, (data) => {
-  //     res.status(200).json(data);
-  //   });
-  // }
+  } else {
+      res.status(200).json(earningData);
+    }
 });
 
 app.listen(port, () => {
