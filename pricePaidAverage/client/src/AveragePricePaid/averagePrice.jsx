@@ -90,7 +90,7 @@ class AveragePrice extends React.Component {
     <span id = 'bottomRareLine' style={{ width: 676 - currentPriceDistance }}></span>
    </div>
 
-    <div style={{ display: 'inline-block' }}>
+    <div style={{ display: 'inline-block', width: '670px' }}>
       <div id = 'lowest'>52 Week Low
       <p id='lowest'>${lowest}</p></div>
       <div id = 'averagePricePaid' style={{ marginLeft: averagePriceDistance }}>

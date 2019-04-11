@@ -53,7 +53,7 @@ div.priceChartDiv {
 div#average-line{
  position: absolution;
  background: #21CE99;
- margin: 0 4.8px 0 -4.8px;
+ margin: 0 4.65px 0 -4.65px;
  height: 136px;
  width: 1px;
 }
@@ -141,12 +141,11 @@ div#highest{
  font-size: 13px;
  text-align: right;
  width: 90px;
- position: absolute;
  display: inline-block;
  color: #8C8C8E;
  font-weight: 500;
- letter-spacing: 0.25px;
- left: 595px;
+ letter-spacing: 0.25px; 
+ float: right;
 }
 
 p#highest{

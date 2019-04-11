@@ -45,14 +45,6 @@ div.priceChartDiv {
  display: inline-block;
 }
 
-div#average-line{
- position: absolution;
- background: #21CE99;
- margin: 0 4.8px 0 -4.8px;
- height: 136px;
- width: 1px;
-}
-
 div#averagePricePaid{
  display: inline-block;
  position: absolute;
