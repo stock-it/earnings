@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
 const db = require('../index.js');
-const companyData = require('../stockList');
+const companyData = require('./stockList');
 const Earning = require('./EarningScheme');
 
 const sampleEarnings = [];
