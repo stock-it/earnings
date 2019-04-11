@@ -20,7 +20,7 @@ earningData = []
 app.get('/:id', (req, res) => {
     db.getEarning(req.params.id, (data) => {
       earningData = data;
-      res.redirect('/');
+      res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
     });
 });
 
@@ -33,6 +33,12 @@ app.get('/data/earnings/', (req, res) => {
   } else {
       res.status(200).json(earningData);
     }
+});
+
+app.get('/data/earnings/:id', (req, res) => {
+  db.getPaidPrice(req.params.id, (data) => {
+    priceData = data;
+  });
 });
 
 app.listen(port, () => {
