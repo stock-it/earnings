@@ -39,12 +39,6 @@ div.priceChartBar{
  display: inline-block;
 }
 
-div.priceChartDiv {
- width: 11px;
- margin: 10px 9.3px 15px 0px;
- display: inline-block;
-}
-
 div#averagePricePaid{
  display: inline-block;
  position: absolute;

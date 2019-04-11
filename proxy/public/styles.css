@@ -34,9 +34,10 @@ p.topic {
     font-size: 26px;
     line-height: 30px;
     letter-spacing: -0.14px;
+    font-weight: 500;
 }
 
 div.Components {
- margin: 30px 0 30px 12px;
+ margin: 30px 0 30px 11.5px;
  width: 676px;
 }
