@@ -14,16 +14,8 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/:id', (req, res) => {
-  db.getRating(req.params.id, (data) => {
-    ratingsData = data;
-  });
-  db.getEarning(req.params.id, (data) => {
-    earningData = data;
-  });
-  db.getPaidPrice(req.params.id, (data) => {
-    stockData = data;
-    res.status(200).redirect('/');
-  });
+
+  res.status(200).sendFile(__dirname + '/public/' + 'index.html');
 });
 
 app.listen(port, () => {

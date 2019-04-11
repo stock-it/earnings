@@ -20,11 +20,11 @@ priceData = []
 app.get('/:id', (req, res) => {
     db.getPaidPrice(req.params.id, (data) => {
       priceData = data;
-      res.redirect('/');
+      res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
     });
 });
 
-app.get('/data/stocks/', (req, res) => {
+app.get('/data/price/', (req, res) => {
   // set Default data equal to 001
   if (priceData.length === 0) {
     db.getPaidPrice('001', (data) => {
@@ -33,6 +33,12 @@ app.get('/data/stocks/', (req, res) => {
   } else {
       res.status(200).json(priceData);
     }
+});
+
+app.get('/data/price/:id', (req, res) => {
+    db.getPaidPrice('001', (data) => {
+      priceData = data;
+    });
 });
 
 app.listen(port, () => {

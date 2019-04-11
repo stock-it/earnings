@@ -14,7 +14,7 @@ class AveragePrice extends React.Component {
   }
 
   componentDidMount() {
-    $.get('http://localhost:3001/data/stocks', (stockData) => {
+    $.get('http://localhost:3001/data/price', (stockData) => {
     // $.get('//front-end-capstone.herokuapp.com/data/stocks', (stockData) => {
       const priceData = [];
       stockData.map(stock => priceData.push(stock.price));
