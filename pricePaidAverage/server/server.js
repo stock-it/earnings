@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3001;
 const db = require('../database/index.js');
 
 app.use(express.static(`${__dirname}/../public/`));
@@ -38,3 +38,4 @@ app.get('/data/price/', (req, res) => {
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
+
