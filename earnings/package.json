@@ -11,9 +11,7 @@
     "heroku-postbuild": "webpack -d",
     "webpack-client": "webpack -d --watch",
     "webpack-server": "nodemon server/server.js",
-    "db:setup": "node database/StockPricePaid/stockSeed.js",
-    "rating:setup": "node database/AnalystRating/ratingseed.js",
-    "earning:setup": "node database/Earning/earningsSeed.js",
+    "db:setup": "node database/Earning/earningsSeed.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
