@@ -5,6 +5,7 @@ import React from 'react';
 import Chart from './chart.jsx';
 import $ from 'jquery';
 
+const port = 'ec2-3-14-8-3.us-east-2.compute.amazonaws.com';
 class AveragePrice extends React.Component {
   constructor() {
     super();
@@ -14,7 +15,7 @@ class AveragePrice extends React.Component {
   }
 
   componentDidMount() {
-    $.get('http://localhost:3001/data/price', (stockData) => {
+    $.get(`http://${port}:3001/data/price`, (stockData) => {
     // $.get('//front-end-capstone.herokuapp.com/data/stocks', (stockData) => {
       const priceData = [];
       stockData.map(stock => priceData.push(stock.price));

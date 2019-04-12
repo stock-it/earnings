@@ -6,6 +6,8 @@ import React from 'react';
 import PercentageLine from './PercentageLine.jsx';
 import $ from 'jquery';
 
+const port = 'ec2-3-14-8-3.us-east-2.compute.amazonaws.com';
+
 class AnalystChart extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +17,7 @@ class AnalystChart extends React.Component {
   }
 
   componentDidMount() {
-    $.get('http://localhost:3003/data/ratings', (Data) => {
+    $.get(`http://${port}:3003/data/ratings`, (Data) => {
     // $.get('//front-end-capstone.herokuapp.com/data/ratings', (Data) => {
       const ratingsData = [];
       Data.map(ratings => ratingsData.push(ratings.rating));
