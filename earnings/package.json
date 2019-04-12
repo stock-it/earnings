@@ -6,7 +6,7 @@
   "author": "Gary",
   "license": "ISC",
   "scripts": {
-    "start": "node database/Earning/earningsSeed.js & node server/server.js",
+    "start": "webpack -d & node server/server.js",
     "dev": "npm-run-all --parallel webpack-*",
     "heroku-postbuild": "webpack -d",
     "webpack-client": "webpack -d --watch",
