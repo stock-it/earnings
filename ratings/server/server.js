@@ -20,7 +20,7 @@ ratingsData = [];
 app.get('/:id', (req, res) => {
   db.getRating(req.params.id, (data) => {
     ratingsData = data;
-    res.redirect('/');
+    res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
   });
 });
 
