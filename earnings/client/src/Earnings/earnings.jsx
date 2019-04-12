@@ -5,8 +5,10 @@ import EarningsChartFrame from './earningsChartFrame.jsx';
 import EarningBottomBar from './earningBottomBar.jsx';
 import $ from 'jquery';
 
-const port = 'ec2-3-14-8-3.us-east-2.compute.amazonaws.com';
+const host = 'ec2-3-14-8-3.us-east-2.compute.amazonaws.com';
+const path = window.location.pathname;
 
+window.location.pathname
 class Earnings extends React.Component {
   constructor(props) {
     super(props);
@@ -16,12 +18,10 @@ class Earnings extends React.Component {
   }
 
   componentDidMount() {
-    $.get(`http://${port}:3002/data/earnings`, (Data) => {
+    $.get(`http://${host}:3002/api/price${path}`, (Data) => {
     // $.get('//front-end-capstone.herokuapp.com/data/earnings', (Data) => {
-      const earningsData = [];
-      Data.map(earnings => earningsData.push(earnings));
       this.setState({
-        earnings: earningsData,
+        earnings: Data,
       });
     });
   }
