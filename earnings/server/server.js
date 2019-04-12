@@ -35,12 +35,6 @@ app.get('/data/earnings/', (req, res) => {
     }
 });
 
-app.get('/data/earnings/:id', (req, res) => {
-  db.getPaidPrice(req.params.id, (data) => {
-    priceData = data;
-  });
-});
-
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });

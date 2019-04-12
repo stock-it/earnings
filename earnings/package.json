@@ -6,7 +6,7 @@
   "author": "Gary",
   "license": "ISC",
   "scripts": {
-    "start": "webpack -d --watch & node server/server.js",
+    "start": "node server/server.js",
     "dev": "npm-run-all --parallel webpack-*",
     "heroku-postbuild": "webpack -d",
     "webpack-client": "webpack -d --watch",
