@@ -9,7 +9,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node database/StockPricePaid/stockSeed.js & node server/server.js",
     "dev": "npm-run-all --parallel webpack-*",
     "heroku-postbuild": "webpack -d",
     "webpack-client": "webpack -d --watch",
