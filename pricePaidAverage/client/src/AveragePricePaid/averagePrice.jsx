@@ -50,7 +50,7 @@ class AveragePrice extends React.Component {
       currentPrice > averagePrice 
       ? averagePrice < tempLow - barRange && tempHigh - barRange <= currentPrice
         ? highLight = true : null
-      : averagePrice > tempLow - 2 * barRange && tempHigh >= currentPrice + barRange
+      : averagePrice > tempLow - 2 * barRange && tempHigh > currentPrice + barRange
         ? highLight = true : null;
       i === currentSpot ? averageLine = true : null;
       allData.push([occurence, highLight, averageLine]);
