@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Stock = require('./StockPricePaid/StockScheme.js');
 
-// const mongoUri = 'mongodb://localhost/stock';
-const mongoUri = 'mongodb://gary:abcd1234@ds031922.mlab.com:31922/front-end-capstone-project';
+const mongoUri = 'mongodb://172.17.0.6/16:27017/stock';
+// const mongoUri = 'mongodb://gary:abcd1234@ds031922.mlab.com:31922/front-end-capstone-project';
 // const mongoUri = process.env.DATABASEURL;
 mongoose.connect(mongoUri, { useNewUrlParser: true },
   (err) => {
