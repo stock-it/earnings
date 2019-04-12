@@ -4,7 +4,7 @@ const Earnings = require('./Earning/EarningScheme');
 // const mongoUri = 'mongodb://localhost/stock';
 // const mongoUri = 'mongodb://gary:abcd1234@ds031922.mlab.com:31922/front-end-capstone-project';
 // const mongoUri = process.env.DATABASEURL;
-const mongoUri = 'mongodb://172.17.0.5/price';
+const mongoUri = 'mongodb://172.17.0.5/stock';
 mongoose.connect(mongoUri, { useNewUrlParser: true },
   (err) => {
     if (err) {
