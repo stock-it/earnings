@@ -1,0 +1,34 @@
+{
+  "name": "seed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Gary",
+  "license": "ISC",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "start": "npm-run-all --parallel seed:*",
+    "seed:price": "node price/StockPricePaid/stockSeed.js",
+    "seed:earnings": "node earnings/Earning/earningsSeed.js",
+    "seed:ratings": "node ratings/AnalystRating/ratingSeed.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "faker": "^4.1.0",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.4.20",
+    "morgan": "^1.9.1",
+    "npm": "^6.9.0"
+  },
+  "devDependencies": {
+    "jest": "^24.5.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
