@@ -15,24 +15,22 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
-ratingsData = [];
-
 app.get('/:id', (req, res) => {
-  db.getRating(req.params.id, (data) => {
-    ratingsData = data;
-    res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
-  });
+  res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-app.get('/data/ratings/', (req, res) => {
+app.get('/api/ratings', (req, res) => {
 // set Default data equal to 001
-if (ratingsData.length === 0) {
   db.getRating('001', (data) => {
     res.status(200).json(data);
   });
-} else {
-    res.status(200).json(ratingsData);
-  }
+});
+
+app.get('/api/ratings/:id', (req, res) => {
+  // set Default data equal to 001
+    db.getRating(req.params.id, (data) => {
+      res.status(200).json(data)
+    })
 });
 
 app.listen(port, () => {

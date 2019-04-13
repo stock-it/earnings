@@ -18,7 +18,7 @@ class Earnings extends React.Component {
   }
 
   componentDidMount() {
-    $.get(`http://${host}:3002/api/price${path}`, (Data) => {
+    $.get(`http://${host}:3002/api/earnings${path}`, (Data) => {
     // $.get('//front-end-capstone.herokuapp.com/data/earnings', (Data) => {
       this.setState({
         earnings: Data,

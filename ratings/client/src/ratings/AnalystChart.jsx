@@ -7,6 +7,7 @@ import PercentageLine from './PercentageLine.jsx';
 import $ from 'jquery';
 
 const port = 'ec2-3-14-8-3.us-east-2.compute.amazonaws.com';
+const path = window.location.pathname;
 
 class AnalystChart extends React.Component {
   constructor(props) {
@@ -17,12 +18,10 @@ class AnalystChart extends React.Component {
   }
 
   componentDidMount() {
-    $.get(`http://${port}:3003/data/ratings`, (Data) => {
+    $.get(`http://${port}:3003/api/ratings${path}`, (Data) => {
     // $.get('//front-end-capstone.herokuapp.com/data/ratings', (Data) => {
-      const ratingsData = [];
-      Data.map(ratings => ratingsData.push(ratings.rating));
       this.setState({
-        ratings: ratingsData,
+        ratings: Data,
       });
     });
   }
@@ -38,8 +37,8 @@ class AnalystChart extends React.Component {
 
     if (ratings.length > 0) {
       total = ratings.length;
-      buySuggestion = ratings.filter(x => x === 'Buy').length;
-      holdSuggestion = ratings.filter(x => x === 'Hold').length;
+      buySuggestion = ratings.filter(x => x.rating === 'Buy').length;
+      holdSuggestion = ratings.filter(x => x.rating === 'Hold').length;
       buyPercent = Math.round(buySuggestion / total * 100);
       holdPercent = Math.round(holdSuggestion / total * 100);
       sellPercent = 100 - buyPercent - holdPercent;

@@ -18,21 +18,21 @@ app.use(express.static(path.join(__dirname, '../public')));
 priceData = []
 
 app.get('/:id', (req, res) => {
-    db.getPaidPrice(req.params.id, (data) => {
-      priceData = data;
-      res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
-    });
+  res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-app.get('/data/price/', (req, res) => {
+app.get('/api/price', (req, res) => {
   // set Default data equal to 001
-  if (priceData.length === 0) {
-    db.getPaidPrice('001', (data) => {
-      res.status(200).json(data);
-    });
-  } else {
-      res.status(200).json(priceData);
-    }
+    db.getPaidPrice("001", (data) => {
+      res.status(200).json(data)
+    })
+});
+
+app.get('/api/price/:id', (req, res) => {
+  // set Default data equal to 001
+    db.getPaidPrice(req.params.id, (data) => {
+      res.status(200).json(data)
+    })
 });
 
 app.listen(port, () => {

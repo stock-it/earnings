@@ -19,14 +19,14 @@ app.get('/:id', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-app.get('/api/price', (req, res) => {
+app.get('/api/earnings', (req, res) => {
   // set Default data equal to 001
     db.getEarning("001", (data) => {
       res.status(200).json(data)
     })
 });
 
-app.get('/api/price/:id', (req, res) => {
+app.get('/api/earnings/:id', (req, res) => {
   // set Default data equal to 001
     db.getEarning(req.params.id, (data) => {
       res.status(200).json(data)
