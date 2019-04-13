@@ -6,7 +6,7 @@
   "author": "Gary",
   "license": "ISC",
   "scripts": {
-    "start": "webpack -d & node server/server.js",
+    "start": "node server/server.js",
     "dev": "npm-run-all --parallel webpack-*",
     "build": "webpack --mode=production",
     "webpack-client": "webpack -d --watch",
@@ -48,7 +48,9 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "@gfx/zopfli": "^1.0.11",
     "babel-loader": "^8.0.5",
+    "compression-webpack-plugin": "^2.0.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
