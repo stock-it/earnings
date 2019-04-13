@@ -5,7 +5,7 @@ import React from 'react';
 import Chart from './chart.jsx';
 import $ from 'jquery';
 
-const port = 'ec2-3-14-8-3.us-east-2.compute.amazonaws.com';
+const port = '18.223.202.138';
 const path = window.location.pathname;
 
 class AveragePrice extends React.Component {

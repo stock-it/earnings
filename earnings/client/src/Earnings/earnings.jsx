@@ -5,7 +5,7 @@ import EarningsChartFrame from './earningsChartFrame.jsx';
 import EarningBottomBar from './earningBottomBar.jsx';
 import $ from 'jquery';
 
-const host = 'ec2-3-14-8-3.us-east-2.compute.amazonaws.com';
+const host = '18.223.202.138';
 const path = window.location.pathname;
 
 window.location.pathname
