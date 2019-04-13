@@ -38,7 +38,8 @@ class AveragePrice extends React.Component {
     let averagePriceDistance = 0;
     let percentage = 0;
     let compare = '';
-    const currentSpot = Math.floor((currentPrice - lowest) / barRange);
+    let currentSpot = Math.floor((currentPrice - lowest) / barRange);
+    currentSpot >= 33 ? currentSpot = 32 : null;
     const averageSpot = Math.floor((averagePrice - lowest) / barRange);
     const sortPriceData = arr.slice(0).sort((a, b) => a - b);
     const allData = [];
@@ -88,9 +89,9 @@ class AveragePrice extends React.Component {
     {allData.map(priceData => <Chart priceData = {priceData} />)}
    </div>
    <div className='bottomLine'>
-    <span id = 'bottomFrontLine' style={{ width: currentPriceDistance }}></span>
+    <span id = 'bottomFrontLine' style={{ width: currentPriceDistance > 670 ? 670 : currentPriceDistance }}></span>
     <span id = 'circle' ></span>
-    <span id = 'bottomRareLine' style={{ width: 676 - currentPriceDistance }}></span>
+    <span id = 'bottomRareLine' style={{ width: 670 - currentPriceDistance }}></span>
    </div>
 
     <div style={{ display: 'inline-block', width: '670px' }}>
