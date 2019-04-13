@@ -86,7 +86,7 @@ class AveragePrice extends React.Component {
     </div>
    </div>
    <div id = 'chart' >
-    {allData.map(priceData => <Chart key = { priceData[3] } priceData = {priceData} />)}
+    {allData.map(priceData => <Chart key = { priceData[3] } id = { priceData[3] } priceData = {priceData} />)}
    </div>
    <div className='bottomLine'>
     <span id = 'bottomFrontLine' style={{ width: currentPriceDistance > 670 ? 670 : currentPriceDistance }}></span>
