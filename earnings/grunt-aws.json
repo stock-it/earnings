@@ -1,5 +1,4 @@
-{ 
- "key": "AKIAII7ZXPZT7FHLTC3Q", 
- "secret": "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", 
- "bucket": "front-end-capstones" 
+{
+ "AWSAccessKeyId": "AKIAII7ZXPZT7FHLTC3Q",
+ "AWSSecretKey": "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"
 }

@@ -7,8 +7,9 @@
   "license": "ISC",
   "scripts": {
     "start": "node server/server.js",
+    "build": "webpack --mode=production & grunt deploy -v",
+    "deploy": "grunt deploy -v",
     "dev": "npm-run-all --parallel webpack-*",
-    "build": "webpack --mode=production",
     "webpack-client": "webpack -d --watch",
     "webpack-server": "nodemon server/server.js",
     "db:setup": "node database/StockPricePaid/stockSeed.js",

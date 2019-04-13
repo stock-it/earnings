@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
  grunt.initConfig({
-   aws: grunt.file.readJSON('aws-keys.json'), // Read the file
+   aws: grunt.file.readJSON('grunt-aws.json'), // Read the file
    aws_s3: {
      options: {
        accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
@@ -10,7 +10,7 @@ module.exports = function(grunt) {
      },
      dist: {
        options: {
-         bucket: 'robinhood-fec-shehu',
+         bucket: 'front-end-capstones',
          differential: true // Only uploads the files that have changed
        },
        files: [
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
            expand: true,
            cwd: "public/dist",
            src: ["*.js"],
-           dest: "",
+           dest: "/earnings",
            'action': 'upload',
          }
        ]
