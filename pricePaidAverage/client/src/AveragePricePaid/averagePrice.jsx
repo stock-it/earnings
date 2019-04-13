@@ -56,7 +56,7 @@ class AveragePrice extends React.Component {
       : averagePrice > tempLow - 2 * barRange && tempHigh > currentPrice + barRange
         ? highLight = true : null;
       i === currentSpot ? averageLine = true : null;
-      allData.push([occurence, highLight, averageLine]);
+      allData.push([occurence, highLight, averageLine, i]);
     }
 
     // find the spot for current price
@@ -86,7 +86,7 @@ class AveragePrice extends React.Component {
     </div>
    </div>
    <div id = 'chart' >
-    {allData.map(priceData => <Chart priceData = {priceData} />)}
+    {allData.map(priceData => <Chart key = { priceData[3] } priceData = {priceData} />)}
    </div>
    <div className='bottomLine'>
     <span id = 'bottomFrontLine' style={{ width: currentPriceDistance > 670 ? 670 : currentPriceDistance }}></span>
