@@ -11,6 +11,7 @@
   "scripts": {
     "start": "webpack -d & node server/server.js",
     "dev": "npm-run-all --parallel webpack-*",
+    "build": "webpack --mode=production",
     "heroku-postbuild": "webpack -d",
     "webpack-client": "webpack -d --watch",
     "webpack-server": "nodemon server/server.js",
