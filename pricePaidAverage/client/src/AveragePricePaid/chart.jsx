@@ -12,6 +12,7 @@ class Chart extends React.Component {
     const occurence = this.props.priceData[0];
     const highlight = this.props.priceData[1];
     const lineDisplay = this.props.priceData[2];
+    const id = this.props.priceData[3];
 
     const divStyle = {
       height: occurence * 4.3 > 120 ? 120 : occurence * 4.3,
@@ -21,7 +22,7 @@ class Chart extends React.Component {
       display: lineDisplay ? 'inline-block' : 'none',
     };
     return (
-   <div className = 'priceChartBar'>
+   <div className = 'priceChartBar' >
     <div className = 'priceChartDiv' style={divStyle}></div>
     <div id='average-line' style={lineStyle}></div>
    </div>

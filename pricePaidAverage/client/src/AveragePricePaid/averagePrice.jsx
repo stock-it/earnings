@@ -38,7 +38,8 @@ class AveragePrice extends React.Component {
     let averagePriceDistance = 0;
     let percentage = 0;
     let compare = '';
-    let currentSpot = Math.floor((currentPrice - lowest) / barRange);
+    let currentSpot = 0;
+    currentPrice > 0 ? currentSpot = Math.floor((currentPrice - lowest) / barRange) : null;
     currentSpot >= 33 ? currentSpot = 32 : null;
     const averageSpot = Math.floor((averagePrice - lowest) / barRange);
     const sortPriceData = arr.slice(0).sort((a, b) => a - b);
@@ -86,7 +87,7 @@ class AveragePrice extends React.Component {
     </div>
    </div>
    <div id = 'chart' >
-    {allData.map(priceData => <Chart key = { priceData[3] } id = { priceData[3] } priceData = {priceData} />)}
+    {allData.map(priceData => <Chart key = {priceData[3]} priceData = {priceData} />)}
    </div>
    <div className='bottomLine'>
     <span id = 'bottomFrontLine' style={{ width: currentPriceDistance > 670 ? 670 : currentPriceDistance }}></span>
@@ -97,7 +98,7 @@ class AveragePrice extends React.Component {
     <div style={{ display: 'inline-block', width: '670px' }}>
       <div id = 'lowest'>52 Week Low
       <p id='lowest'>${lowest}</p></div>
-      <div id = 'averagePricePaid' style={{ marginLeft: averagePriceDistance }}>
+      <div id = 'averagePricePaid' style={{ marginLeft: averagePriceDistance ? averagePriceDistance : 0 }}>
         <p className='averagePricePaid'>Average Price Paid</p>
         <p className='averagePricePaid' id='averagePricePaid'>${averagePrice}</p>
       </div>
