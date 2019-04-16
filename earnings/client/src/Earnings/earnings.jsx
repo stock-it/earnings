@@ -38,7 +38,7 @@ class Earnings extends React.Component {
     const actSecondQuartile = (actMin + (actMax - actMin) / 3 * 2).toFixed(2);
     actMax = actMax.toFixed(2);
     actMin = actMin.toFixed(2);
-    const actQuartile = {
+    const actQrt = {
       actMax,
       actSecondQuartile,
       actFirstQuartile,
@@ -51,7 +51,7 @@ class Earnings extends React.Component {
     const estSecondQuartile = (estMin + (estMax - estMin) / 3 * 2).toFixed(2);
     estMax = estMax.toFixed(2);
     estMin = estMin.toFixed(2);
-    const estQuartile = {
+    const estQrt = {
       estMax,
       estSecondQuartile,
       estFirstQuartile,
@@ -61,7 +61,7 @@ class Earnings extends React.Component {
     <div className="Components">
       <p className='topic'>Earnings</p>
       <div className='line'></div>
-      <EarningsChartFrame earnings={earningsData} actQuartile={actQuartile} estQuartile={estQuartile}/>
+      <EarningsChartFrame earnings={earningsData} actQrt={actQrt} estQrt={estQrt}/>
       <EarningBottomBar/>
     </div>
     );

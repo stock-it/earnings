@@ -8,8 +8,8 @@ class EarningChart extends React.Component {
   }
 
   render() {
-    const { actMax } = this.props.actquartile;
-    const { actMin } = this.props.actquartile;
+    const { actMax } = this.props.actQrt;
+    const { actMin } = this.props.actQrt;
     const { actualEarning } = this.props.earning;
     const actSpot = (actualEarning - actMin) / (actMax - actMin) * 120;
     const { estimatedEarning } = this.props.earning;
