@@ -18,7 +18,7 @@ module.exports = function(grunt) {
            expand: true,
            cwd: "public/dist",
            src: ["*.js"],
-           dest: "/price-paid-average",
+           dest: "/ratings",
            'action': 'upload',
          }
        ]
