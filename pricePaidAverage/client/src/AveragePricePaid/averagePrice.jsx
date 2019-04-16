@@ -40,7 +40,6 @@ class AveragePrice extends React.Component {
     const averageSpot = Math.floor((averagePrice - lowest) / barRange);
     const sortPriceData = arr.slice(0).sort((a, b) => a - b);
     const allData = [];
-    const compareLoc = curPriceDis - 33;
     for (let i = 0; i < 33; i += 1) {
       const tempLow = lowest + barRange * i;
       const tempHigh = lowest + barRange * (i + 1);
@@ -65,7 +64,7 @@ class AveragePrice extends React.Component {
     } else {
       avgPriceDis = (averageSpot - 4.5 ) * 20.3 - 4;
     }
-
+    const compareLoc = curPriceDis - 33;
     percentage = Math.floor((currentPrice / averagePrice - 1) * 100);
     // Percentage that compare between current Price and average Price
     if (percentage >= 0) {
@@ -77,7 +76,7 @@ class AveragePrice extends React.Component {
   <div className="Components">
    <p className='topic'>Price Paid on Robinhood</p>
    <div className='line'></div>
-   <div id = 'compare' style={{ left: compareLoc > 0 ? compareLoc : 0 }}>
+   <div id = 'compare' style={{ left: compareLoc }}>
     <div style={{ position: 'absolute'}}>
       <p id = 'compare'>{compare}</p>
       <p id = 'rightNow'>Right Now</p>
