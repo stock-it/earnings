@@ -125,7 +125,7 @@ div#analystSuggestion{
 
 div.analystSuggestionLineEndBackground{
  height: 6px;
- background: white;
+ background: #D6F5EA;;
  display: inline-block;
  margin: 0 0 2px 0;
  border-radius: 0 50px 50px 0;
