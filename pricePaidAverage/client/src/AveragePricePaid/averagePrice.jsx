@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable max-len */
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
 import Chart from './chart.jsx';
 import $ from 'jquery';
 
@@ -18,7 +15,6 @@ class AveragePrice extends React.Component {
 
   componentDidMount() {
     $.get(`http://${port}:3001/api/price${path}`, (stockData) => {
-    // $.get('//front-end-capstone.herokuapp.com/data/stocks', (stockData) => {
       const priceData = [];
       stockData.map(stock => priceData.push(stock.price));
       this.setState({
@@ -35,7 +31,7 @@ class AveragePrice extends React.Component {
     const barRange = (range) / 33;
     const currentPrice = this.state.price[this.state.price.length - 1];
     const averagePrice = (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(2);
-    let averagePriceDistance = 0;
+    let avgPriceDis = 0;
     let percentage = 0;
     let compare = '';
     let currentSpot = 0;
@@ -44,6 +40,7 @@ class AveragePrice extends React.Component {
     const averageSpot = Math.floor((averagePrice - lowest) / barRange);
     const sortPriceData = arr.slice(0).sort((a, b) => a - b);
     const allData = [];
+    const compareLoc = curPriceDis - 33;
     for (let i = 0; i < 33; i += 1) {
       const tempLow = lowest + barRange * i;
       const tempHigh = lowest + barRange * (i + 1);
@@ -61,12 +58,12 @@ class AveragePrice extends React.Component {
     }
 
     // find the spot for current price
-    const currentPriceDistance = currentSpot * 20.3 + 9.3;
+    const curPriceDis = currentSpot * 20.3 + 9.3;
     // find the spot for average price
     if (averagePrice > currentPrice) {
-      averagePriceDistance = (averageSpot - 4.5 )* 20.3;
+      avgPriceDis = (averageSpot - 4.5 )* 20.3;
     } else {
-      averagePriceDistance = (averageSpot - 4.5 ) * 20.3 - 4;
+      avgPriceDis = (averageSpot - 4.5 ) * 20.3 - 4;
     }
 
     percentage = Math.floor((currentPrice / averagePrice - 1) * 100);
@@ -80,7 +77,7 @@ class AveragePrice extends React.Component {
   <div className="Components">
    <p className='topic'>Price Paid on Robinhood</p>
    <div className='line'></div>
-   <div id = 'compare' style={{ left: currentPriceDistance - 33 > 0 ? currentPriceDistance - 33 : 0 }}>
+   <div id = 'compare' style={{ left: compareLoc > 0 ? compareLoc : 0 }}>
     <div style={{ position: 'absolute'}}>
       <p id = 'compare'>{compare}</p>
       <p id = 'rightNow'>Right Now</p>
@@ -90,15 +87,15 @@ class AveragePrice extends React.Component {
     {allData.map(priceData => <Chart key = {priceData[3]} priceData = {priceData} />)}
    </div>
    <div className='bottomLine'>
-    <span id = 'bottomFrontLine' style={{ width: currentPriceDistance > 670 ? 670 : currentPriceDistance }}></span>
+    <span id = 'bottomFrontLine' style={{ width: curPriceDis > 670 ? 670 : curPriceDis }}></span>
     <span id = 'circle' ></span>
-    <span id = 'bottomRareLine' style={{ width: 670 - currentPriceDistance }}></span>
+    <span id = 'bottomRareLine' style={{ width: 670 - curPriceDis }}></span>
    </div>
 
     <div style={{ display: 'inline-block', width: '670px' }}>
       <div id = 'lowest'>52 Week Low
       <p id='lowest'>${lowest}</p></div>
-      <div id = 'averagePricePaid' style={{ marginLeft: averagePriceDistance ? averagePriceDistance : 0 }}>
+      <div id = 'averagePricePaid' style={{ marginLeft: avgPriceDis ? avgPriceDis : 0 }}>
         <p className='averagePricePaid'>Average Price Paid</p>
         <p className='averagePricePaid' id='averagePricePaid'>${averagePrice}</p>
       </div>
