@@ -6,7 +6,7 @@ import React from 'react';
 import PercentageLine from './PercentageLine.jsx';
 import $ from 'jquery';
 
-const host = '18.223.202.138';
+const host = '52.53.224.110';
 const path = window.location.pathname;
 
 class AnalystChart extends React.Component {
