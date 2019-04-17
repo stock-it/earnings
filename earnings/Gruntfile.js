@@ -6,11 +6,11 @@ module.exports = function(grunt) {
      options: {
        accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
        secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env variables
-       region: 'us-west-1'
+       region: 'us-east-2'
      },
      dist: {
        options: {
-         bucket: 'front-end-capstones',
+         bucket: 'merryweather',
          differential: true // Only uploads the files that have changed
        },
        files: [
