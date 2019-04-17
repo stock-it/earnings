@@ -18,10 +18,48 @@ const db = mongoose.connection;
 const getEarning = (id, callback) => {
   const query = { id };
   Earnings.find(query, (err, data) => {
+    if (err) return callback(err)
+    callback(null, data);
+  });
+};
+
+const createEarning = (item, callback) => {
+  const query = item;
+  Earnings.updateOne(query, (err, data) => {
+    if (err) callback(err);
+    callback(data);
+  });
+
+  // req.newData.id = item.id;
+  // req.newData.company = item.company;
+  // req.actualEarning = item.actualEarning;
+  // req.estimatedEarning = item.estimatedEarning;
+  // req.quarter = item.quarter;
+  // req.quarterNumber = item.quarterNumber;
+
+  // Earnings.findOneAndUpdate(query, req.newData, {upsert:true}, (err, doc) => {
+  //     if (err) return res.send(500, { error: err });
+  //     return res.send("succesfully saved");
+  // });
+};
+
+const updateEarning = (item, callback) => {
+  const query = item;
+  Earnings.updateOne(query, (err, data) => {
     if (err) callback(err);
     callback(data);
   });
 };
 
+const deleteEarning = (id, callback) => {
+  const query = { id };
+  Earnings.deleteOne(query, (err) => {
+    if (err) callback(err);
+  });
+};
+
 module.exports = db;
 module.exports.getEarning = getEarning;
+module.exports.createEarning = createEarning;
+module.exports.updateEarning = updateEarning;
+module.exports.deleteEarning = deleteEarning;
