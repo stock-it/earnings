@@ -17,7 +17,10 @@
     "earning:setup": "node database/Earning/earningsSeed.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors"
+    "test:coverage": "jest --coverage --colors",
+    "gen": "node database/Earning/dataGen.js",
+    "genzip": "node database/Earning/dataGen.js | gzip -c > data.gz",
+    "seedunzipPG": "gunzip -c data.gz | database/StockPricePaid/stockSeed.js"
   },
   "jest": {
     "testEnvironment": "node"
@@ -34,6 +37,7 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "file-loader": "^3.0.1",
+    "fs": "0.0.1-security",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.20",
     "morgan": "^1.9.1",
