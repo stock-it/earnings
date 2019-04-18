@@ -105,38 +105,38 @@ const companyData = [
 ];
 
 
-//  Add 10 million more stocks
-const MAX = 26*26*26*26*22;
+// //  Add 10 million more stocks
+// const MAX = 26*26*26*26*22;
 
-//  Generate ticker symbols
+// //  Generate ticker symbols
 
-const alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 
-'h', 'i', 'j', 'k', 'l', 'm', 'n',  
-'o', 'p', 'q', 'r', 's', 't', 'u', 
-'v', 'w', 'x', 'y', 'z' ]; 
+// const alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 
+// 'h', 'i', 'j', 'k', 'l', 'm', 'n',  
+// 'o', 'p', 'q', 'r', 's', 't', 'u', 
+// 'v', 'w', 'x', 'y', 'z' ]; 
 
-const allTickers = [];
-let tempTicker = '';
-for (let a = 0; a < 26; a++) {
-  for (let b = 0; b < 26; b++) {
-    for (let c = 0; c < 26; c++) {
-      for (let d = 0; d < 26; d++) {
-        for (let e = 0; e < 26; e++) {
-          tempTicker = alphabet[a] + alphabet[b] + alphabet[c] + alphabet[d] + alphabet[e];
-          allTickers.push(tempTicker);
-        }
-      }
-    }
-  }
-}
+// const allTickers = [];
+// let tempTicker = '';
+// for (let a = 0; a < 26; a++) {
+//   for (let b = 0; b < 26; b++) {
+//     for (let c = 0; c < 26; c++) {
+//       for (let d = 0; d < 26; d++) {
+//         for (let e = 0; e < 26; e++) {
+//           tempTicker = alphabet[a] + alphabet[b] + alphabet[c] + alphabet[d] + alphabet[e];
+//           allTickers.push(tempTicker);
+//         }
+//       }
+//     }
+//   }
+// }
 
-for (let i = 0; i < MAX; i++) {
-  let fillerStock = {
-    id: `${i}`,
-    ticker: allTickers[i],
-    company: faker.company.companyName(),
-  }
-  companyData.push(fillerStock);
-}
+// for (let i = 0; i < MAX; i++) {
+//   let fillerStock = {
+//     id: `${i}`,
+//     ticker: allTickers[i],
+//     company: faker.company.companyName(),
+//   }
+//   companyData.push(fillerStock);
+// }
 
 module.exports = companyData;
