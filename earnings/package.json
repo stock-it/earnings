@@ -19,8 +19,13 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "gen": "node database/Earning/dataGen.js",
-    "genzip": "node database/Earning/dataGen.js | gzip -c > data.gz",
-    "seedunzipPG": "gunzip -c data.gz | database/StockPricePaid/stockSeed.js"
+    "genzip": "node database/Earning/dataGen.js | gzip -c > database/Earning/writeMe.CSV.gz",
+    "unzipsave": "gunzip -c database/Earning/writeMe.CSV.gz | psql postgres < database/Earning/schema.sql",
+    "unzipgenmaybe": "gunzip < database/Earning/writeMe.CSV.gz",
+    "insert": "node database/Earning/dataInsert.js",
+    "seedunzipPG": "gunzip -c < $(pwd)/writeMe.CSV.gz | database/StockPricePaid/stockSeed.js",
+    "createSave": "psql postgres < database/Earning/schema.sql",
+    "runBenchmarks": "psql postgres < database/Earning/benchmarks.sql"
   },
   "jest": {
     "testEnvironment": "node"
@@ -46,7 +51,8 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "style-loader": "^0.23.1",
-    "url-loader": "^1.1.2"
+    "url-loader": "^1.1.2",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

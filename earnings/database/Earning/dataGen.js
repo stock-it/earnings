@@ -1,15 +1,10 @@
-// Time tracking metrics
-// const startTime = Math.round(new Date());
-// console.log('Starting time: ', startTime);
-console.log('Started data generation at: ', new Date());
-console.time('Data Generation');
-////////////////////////////////////////////
-
 const faker = require('faker');
 const companyData = require('./stockList');
 
-const sampleEarnings = [];
+let sampleEarnings = [];
 const EPSdate = ['Q4 2017', 'Q1 2018', 'Q2 2018', 'Q3 2018', 'Q4 2018', 'Q1 2019', 'Q2 2019'];
+
+let allTickers = [];
 
 const createTickerID = () => {
     const alphabet = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 
@@ -17,15 +12,13 @@ const createTickerID = () => {
         'O', 'P', 'Q', 'R', 'S', 'T', 'U', 
         'V', 'W', 'X', 'Y', 'Z' ]; 
     
-    const allTickers = [];
-    
     let tickerID;
     let tickerIDArr = [];
 
     for (let i = 0; i < 6; i++) {
         tickerIDArr.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
     }
-    
+    debugger;
     // Randomly insert a real stock tickerID from stockList companyData
     if (Math.random() * 500 % 7 === 3) {
         tickerID = companyData.ticker;
@@ -34,14 +27,14 @@ const createTickerID = () => {
     }
 
     if (allTickers.hasOwnProperty(tickerID)) {
-        createTickerID();
+        return createTickerID();
     } else {
         return tickerID;
     }
 }
 
 const createCompanyName = () => {
-    faker.company.companyName();
+    faker.company.companyName().split(',').join(' ');
 }
 
 const generator = () => {
@@ -49,15 +42,15 @@ const generator = () => {
     // const numberOfCompanies = 26*26*26*26*22;
     const allCompanies = [];
     const numberOfCompanies = 1;
-    for (let i = 0; i <= numberOfCompanies; i++) {
+    for (let i = 0; i < numberOfCompanies; i++) {
         allCompanies.push({
             ticker: createTickerID(),
-            company: createCompanyName(),
+            company: faker.company.companyName().split(',').join(''),
         });
     }
 
-    // Make sample data from quarterly earnings per company
-    for (const company of allCompanies) {
+    // Make sample data from quarterly earnings per eachCompany
+    for (const eachCompany of allCompanies) {
         let actualEarning = Math.random() * 7;
         let estimatedEarning = actualEarning;
         
@@ -74,8 +67,8 @@ const generator = () => {
             estimatedEarning = estimatedEarning.toFixed(2);
 
             sampleEarnings.push({
-                ticker: company.ticker,
-                company: company.company,
+                ticker: eachCompany.ticker,
+                company: eachCompany.company,
                 actualEarning: Number(actualEarning),
                 estimatedEarning: Number(estimatedEarning),
                 quarter,
@@ -103,12 +96,22 @@ const convertToCSV = (objArray) => {
     return strJSON;
 }
 
+////////////////////////////
+const thousand = 1000;
+const million = 1e6;
+const tenMil = 1e7;
+
+const ws = require('fs').createWriteStream('./database/Earning/writeMe.CSV');
+
 // Write the data to the supplied writable stream (buffer) one million times.
 function writeTenMillionTimes(writer, encoding, callback) {
-    let i = 10000000;
+    let i = tenMil;
+    let count = 0;
     write();
     function write() {
-      const stockData = JSON.stringify(sampleEarnings);
+      //const stockData = JSON.stringify(sampleEarnings);
+      const stockData = convertToCSV(sampleEarnings);
+      process.stdout.write(stockData);
       let ok = true;
       do {
         i--;
@@ -116,29 +119,49 @@ function writeTenMillionTimes(writer, encoding, callback) {
           // last time!
           writer.write(stockData, encoding, callback);
         } else {
-          // See if we should continue, or wait.
-          // Don't pass the callback, because we're not done yet.
           ok = writer.write(stockData, encoding);
+          if (count % million === 0) {
+            console.error('Million count: ', count);
+          }
+          count++;
         }
       } while (i > 0 && ok);
       if (i > 0) {
-        // had to stop early!
-        // write some more once it drains
         writer.once('drain', write);
       }
     }
 }
-const ws = require('fs').createWriteStream('./writeMe.json');
 
 writeTenMillionTimes(ws, 'utf8', (err, data) => {
     if (err) return console.log(err); 
-    console.log('Completed Writestream');
     // if (err) return process.stdout.write(err); 
-    // process.stdout.write('Completed Writestream');
-    console.timeEnd('Data Generation');
+    console.error(process.uptime(), 'seconds');
 });
 
 
+///////////Alternative way:
+// const file = require("fs").createWriteStream("./database/Earning/promiseMe.CSV");
+
+// (async() => {
+//     fs.write(header);
+
+//     for(let i = 0; i < 1e7; i++) {
+//         if(!file.write('a')) {
+//             // Will pause every 16384 iterations until `drain` is emitted
+//             await new Promise(resolve => file.once('drain', resolve));
+//         }
+//     }
+// })();
+/////////////////////////////////////////////////////
+// Time tracking metrics
+// const startTime = Math.round(new Date());
+// console.log('Starting time: ', startTime);
+// console.log('Started data generation at: ', new Date());
+// console.time('Data Generation');
+////////////////////////////////////////////
+
+
+////////////////////////////////////////////
 // Time Tracking Metrics
 //
 // const millisToMinutesAndSeconds = (millis) => {
