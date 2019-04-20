@@ -18,14 +18,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
-    "gen": "node database/Earning/dataGen.js",
     "genzip": "node database/Earning/dataGen.js | gzip -c > database/Earning/writeMe.CSV.gz",
-    "unzipsave": "gunzip -c database/Earning/writeMe.CSV.gz | psql postgres < database/Earning/schema.sql",
-    "unzipgenmaybe": "gunzip < database/Earning/writeMe.CSV.gz",
-    "insert": "node database/Earning/dataInsert.js",
-    "seedunzipPG": "gunzip -c < $(pwd)/writeMe.CSV.gz | database/StockPricePaid/stockSeed.js",
-    "createSave": "psql postgres < database/Earning/schema.sql",
-    "runBenchmarks": "psql postgres < database/Earning/benchmarks.sql"
+    "unzipsave": "gunzip -c database/Earning/writeMe.CSV.gz | psql postgres < database/Earning/schema.sql"
   },
   "jest": {
     "testEnvironment": "node"
