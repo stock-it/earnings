@@ -1,7 +1,6 @@
 const faker = require('faker');
 const companyData = require('./stockList');
 
-let sampleEarnings = [];
 const EPSdate = ['Q4 2017', 'Q1 2018', 'Q2 2018', 'Q3 2018', 'Q4 2018', 'Q1 2019', 'Q2 2019'];
 
 let allTickers = [];
@@ -29,56 +28,49 @@ const createTickerID = () => {
     if (allTickers.hasOwnProperty(tickerID)) {
         return createTickerID();
     } else {
+        allTickers.push(tickerID);
         return tickerID;
     }
 }
 
 const createCompanyName = () => {
-    faker.company.companyName().split(',').join(' ');
+    return faker.company.companyName().split(',').join(' ');
 }
 
 const generator = () => {
-    // Populate all companies object with just one company
-    // const numberOfCompanies = 26*26*26*26*22;
-    const allCompanies = [];
-    const numberOfCompanies = 1;
-    for (let i = 0; i < numberOfCompanies; i++) {
-        allCompanies.push({
+    // Make sample data of quarterly earnings per eachCompany
+    let sampleEarnings = [];
+
+    let actualEarning = Math.random() * 7;
+    let estimatedEarning = actualEarning;
+
+    let quarterNumber = 0;
+    for (const quarter of EPSdate) {
+        let range = Math.floor(Math.random() * 100);
+        range *= Math.floor(Math.random() * 2) === 1 ? 0.45 : -0.40;
+        actualEarning *= (1 + range / 100);
+        actualEarning = actualEarning.toFixed(2);
+
+        let estimateRange = Math.floor(Math.random() * 100);
+        estimateRange *= Math.floor(Math.random() * 2) === 1 ? 0.10 : -0.10;
+        estimatedEarning = actualEarning * (1 + estimateRange / 100);
+        estimatedEarning = estimatedEarning.toFixed(2);
+
+        sampleEarnings.push({
             ticker: createTickerID(),
-            company: faker.company.companyName().split(',').join(''),
+            company: createCompanyName(),
+            actualEarning: Number(actualEarning),
+            estimatedEarning: Number(estimatedEarning),
+            quarter,
+            quarterNumber,
+            _id: 11111
         });
+        quarterNumber += 1;
     }
-
-    // Make sample data from quarterly earnings per eachCompany
-    for (const eachCompany of allCompanies) {
-        let actualEarning = Math.random() * 7;
-        let estimatedEarning = actualEarning;
-        
-        let quarterNumber = 0;
-        for (const quarter of EPSdate) {
-            let range = Math.floor(Math.random() * 100);
-            range *= Math.floor(Math.random() * 2) === 1 ? 0.45 : -0.40;
-            actualEarning *= (1 + range / 100);
-            actualEarning = actualEarning.toFixed(2);
-
-            let estimateRange = Math.floor(Math.random() * 100);
-            estimateRange *= Math.floor(Math.random() * 2) === 1 ? 0.10 : -0.10;
-            estimatedEarning = actualEarning * (1 + estimateRange / 100);
-            estimatedEarning = estimatedEarning.toFixed(2);
-
-            sampleEarnings.push({
-                ticker: eachCompany.ticker,
-                company: eachCompany.company,
-                actualEarning: Number(actualEarning),
-                estimatedEarning: Number(estimatedEarning),
-                quarter,
-                quarterNumber,
-            });
-            quarterNumber += 1;
-        }
-    }
+    return sampleEarnings;
 }
-generator();
+// generator();
+// console.error('size of array', sampleEarnings.length);
 
 const convertToCSV = (objArray) => {
     var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
@@ -105,13 +97,13 @@ const ws = require('fs').createWriteStream('./database/Earning/writeMe.CSV');
 
 // Write the data to the supplied writable stream (buffer) one million times.
 function writeTenMillionTimes(writer, encoding, callback) {
-    let i = tenMil;
+    let i = thousand;
     let count = 0;
     write();
     function write() {
-      //const stockData = JSON.stringify(sampleEarnings);
-      const stockData = convertToCSV(sampleEarnings);
-      process.stdout.write(stockData);
+      //const stockData = JSON.stringify(generator());
+       const stockData = convertToCSV(generator());
+       process.stdout.write(stockData);
       let ok = true;
       do {
         i--;
@@ -136,6 +128,7 @@ writeTenMillionTimes(ws, 'utf8', (err, data) => {
     if (err) return console.log(err); 
     // if (err) return process.stdout.write(err); 
     console.error(process.uptime(), 'seconds');
+    
 });
 
 
