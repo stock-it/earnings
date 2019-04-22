@@ -7,16 +7,19 @@ CREATE DATABASE sdc_database;
 DROP TABLE IF EXISTS earnings;
 
 CREATE TABLE earnings (
-    ticker TEXT,
-    company VARCHAR(30), 
+    ticker TEXT UNIQUE PRIMARY KEY,
+    company VARCHAR(100) NOT NULL, 
     actualEarning FLOAT(2), 
     estimatedEarning FLOAT(2),
     quarter VARCHAR(8), 
-    quarterNumber SMALLINT
+    quarterNumber SMALLINT,
+    earnings_id SERIAL
 );
 
 \copy earnings FROM PROGRAM 'gunzip -c $(pwd)/database/Earning/writeMe.CSV.gz' DELIMITER ',' CSV;
 
 -- npm run genzip
--- npm run createSave
+-- brew info postgres
+-- $ pg_ctl -D /usr/local/var/postgres start
+-- npm run unzipsave
 -- npm run benchmarks
