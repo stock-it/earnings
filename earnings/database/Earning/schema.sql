@@ -16,7 +16,7 @@ CREATE TABLE earnings (
     earnings_id SERIAL UNIQUE PRIMARY KEY
 );
 
-\copy earnings FROM PROGRAM 'gunzip -c $(pwd)/database/Earning/writeMe.CSV.gz' DELIMITER ',' CSV;
+\copy earnings (ticker, company, actualEarning, estimatedEarning, quarter, quarterNumber) FROM PROGRAM 'gunzip -c $(pwd)/database/Earning/writeMe.CSV.gz' DELIMITER ',' CSV;
 
 -- npm run genzip
 -- brew info postgres

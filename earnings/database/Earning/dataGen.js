@@ -204,8 +204,7 @@ class Generator {
           actualEarning: Number(actualEarning),
           estimatedEarning: Number(estimatedEarning),
           quarter,
-          quarterNumber, 
-          earnings_id: count + 7
+          quarterNumber
       });
       quarterNumber += 1;
     }
