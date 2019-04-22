@@ -7,13 +7,13 @@ CREATE DATABASE sdc_database;
 DROP TABLE IF EXISTS earnings;
 
 CREATE TABLE earnings (
-    ticker TEXT UNIQUE PRIMARY KEY,
+    ticker TEXT UNIQUE,
     company VARCHAR(100) NOT NULL, 
     actualEarning FLOAT(2), 
     estimatedEarning FLOAT(2),
     quarter VARCHAR(8), 
     quarterNumber SMALLINT,
-    earnings_id SERIAL
+    earnings_id SERIAL PRIMARY KEY
 );
 
 \copy earnings FROM PROGRAM 'gunzip -c $(pwd)/database/Earning/writeMe.CSV.gz' DELIMITER ',' CSV;
