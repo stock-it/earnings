@@ -8,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 const db = require('../database/index.js');
 
+
 app.use(express.static(`${__dirname}/../public/`));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
