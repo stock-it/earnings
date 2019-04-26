@@ -1,2 +1,6 @@
 grunt-aws.json
 *.pem
+.gitignore
+*.gz
+*.csv
+.env
