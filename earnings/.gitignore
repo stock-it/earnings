@@ -5,3 +5,6 @@ writeMe.CSV
 writeMe.CSV.gz
 OneStock.CSV
 OneStock.CSV.gz
+*node_modules/*
+*/*node_modules/*
+node_modules/
