@@ -7,9 +7,9 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 8080;
 const db = require('../database/index.js');
+const stock = require('./controllers/stock')
 
-
-app.use(express.static(`${__dirname}/../public/`));
+// app.use(express.static(`${__dirname}/../public/`));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,35 +25,47 @@ app.get('/stocks/:id', (req, res) => {
 
 app.get('/stocks/earnings', (req, res) => {
   // set Default data equal to 001
-    db.getEarning("001", (err, data) => {
-      if (err) return res.status(404).send(err)
-      res.status(200).json(data)
+    stock.getEarning(001, (err, data) => {
+      if (err) {
+        return res.status(404).send(err)
+      }
+      return res.status(200).json(data)
     })
 });
 
 app.get('/api/earnings/:id', (req, res) => {
-    db.getEarning(req.params.id, (err, data) => {
+    let id = req.params.id || 10;
+    stock.getEarning(id, (err, data) => {
       if (err) return res.status(404).send(err)
       res.status(200).json(data)
     })
 });
 
-app.post('/stocks/:id', (req, res) => {
-    db.createEarning(req.body, (err, data) => {
-      if (err) return res.status(404).send(err)
-      res.status(200).json(data)
-    })
+app.post('/stocks', (req, res) => {
+  let newStock = req.body || {
+    ticker: 'EXAMPLE',
+    company: 'My First Company',
+    actualearning: 6.31,
+    estimatedearning: 5.91,
+    quarter: 'Q4 2017',
+    quarternumber: 0,
+    earnings_id: 70000001,
+  }
+  stock.createEarning(newStock, (err, data) => {
+    if (err) return res.status(404).send(err)
+    res.status(200).send(data)
+  })
 });
 
-app.put('/stocks/:id', (req, res) => {
-    db.updateEarning(req.body, (err, data) => {
+app.put('/stocks/:id/:changeEarnings', (req, res) => {
+    stock.updateEarning(req.params.id, req.params.changeEarnings, (err, data) => {
       if (err) return res.status(404).send(err)
       res.status(200).json(data)
     })
 });
 
 app.delete('/stocks/:id', (req, res) => {
-    db.deleteEarning(req.params.id, (err, data) => {
+    stock.deleteEarning(req.params.id, (err, data) => {
       if (err) return res.status(404).send(err)
       res.status(200).json(data)
     })
