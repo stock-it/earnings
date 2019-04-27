@@ -1,12 +1,40 @@
 config:
-  target: '127.0.0.1:8080'
+  target: 'http://127.0.0.1:8080'
   phases:
     - duration: 60
       arrivalRate: 20
   defaults:
     headers:
+  variables:
+    ticker:
+      - 'AAPL'
+      - 'TSLA'
+      - 'MSFT'
+      - 'GOOGL'
+      - 'T'
+      - 'AMZN'
+      - 'SNAP'
+      - 'TWTR'
+      - 'NFLX'
+      - 'S'
+      - 'SBUX'
+      - 'GRPN'
+      - 'NKE'
+      - 'KO'
+      - 'V'
+      - 'JCP'
+      - 'SPOT'
+      - 'COST'
+      - 'TRXC'
+      - 'F'
+      - 'JPM'
+      - 'UAA'
+      - 'QCOM'
+      - 'JNJ'
+      - 'PCG'
       
 scenarios:
-  - flow:
+  - name: 'Get ticker'
+    flow:
     - get:
-        url: "/api/earnings/AAPL"
+        url: '/api/earnings/{{ ticker }}}'
