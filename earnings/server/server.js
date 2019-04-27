@@ -1,19 +1,20 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-const morgan = require('morgan');
+// const cors = require('cors');
+// const morgan = require('morgan');
 const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 8080;
-const db = require('../database/index.js');
+// const db = require('../database/index.js');
 const stock = require('./controllers/stock')
 
 // app.use(express.static(`${__dirname}/../public/`));
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/stocks/:tickerID', (req, res) => {
