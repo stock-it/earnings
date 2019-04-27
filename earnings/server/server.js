@@ -16,16 +16,23 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/stocks/:id', (req, res) => {
-  if (req.params.id === undefined) {
-    res.status(400).send('Undefined Ticker ID. Please enter search.');
-  }
-  res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
+app.get('/stocks/:tickerID', (req, res) => {
+  // if (req.params.tickerID === undefined) {
+  //   res.status(400).send('Undefined Ticker ID. Please enter search.');
+  // }
+  // res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
+  let targetItem = req.params.tickerID || 'AAPL';
+  stock.getEarning(targetItem, (err, data) => {
+    if (err) {
+      return res.status(404).send(err)
+    }
+    return res.status(200).json(data)
+  })
+
 });
 
 app.get('/stocks/earnings', (req, res) => {
-  // set Default data equal to 001
-    stock.getEarning(001, (err, data) => {
+    stock.getEarning('TSLA', (err, data) => {
       if (err) {
         return res.status(404).send(err)
       }
@@ -33,9 +40,9 @@ app.get('/stocks/earnings', (req, res) => {
     })
 });
 
-app.get('/api/earnings/:id', (req, res) => {
-    let id = req.params.id || 10;
-    stock.getEarning(id, (err, data) => {
+app.get('/api/earnings/:tickerID', (req, res) => {
+    let targetItem = req.params.tickerID || 'TSLA';
+    stock.getEarning(targetItem, (err, data) => {
       if (err) return res.status(404).send(err)
       res.status(200).json(data)
     })
