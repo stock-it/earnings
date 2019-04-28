@@ -15,6 +15,7 @@ CREATE TABLE earnings (
     quarterNumber SMALLINT,
     earnings_id SERIAL UNIQUE PRIMARY KEY
 );
+CREATE INDEX idx_ticker ON earnings(ticker);
 
 \copy earnings (ticker, company, actualEarning, estimatedEarning, quarter, quarterNumber) FROM PROGRAM 'gunzip -c $(pwd)/database/Earning/writeMe.CSV.gz' DELIMITER ',' CSV;
 

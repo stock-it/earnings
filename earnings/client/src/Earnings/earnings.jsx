@@ -8,7 +8,7 @@ import $ from 'jquery';
 // const host = '52.53.224.110';
 // const port = 3002; //port choice for proxy server and all microservices on local machine
 const host = 'localhost';
-const port = 8080;
+const port = 3002; //8080
 //const path = window.location.pathname + /stocks/TSLA;
 //const earnings_id = '700';
 //const ticker = ${ticker || 'AAPL'};
