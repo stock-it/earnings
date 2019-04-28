@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 8080;
-// const db = require('../database/index.js');
+const port = process.env.PORT || 3002; //8080
+const db = require('../database/index.js');
 const stock = require('./controllers/stock')
 
 // app.use(express.static(`${__dirname}/../public/`));
