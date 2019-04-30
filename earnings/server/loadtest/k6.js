@@ -1,6 +1,14 @@
 import http from "k6/http";
 import { check, sleep } from "k6";
 
+export const options = {
+  vus: 100, 
+  duration: '1m', 
+  // thresholds: {
+  //   http_req_duration: ["p(95)<500"]
+  // }
+};
+
 const originalStocksArr = [
   { id: '001', ticker: 'SNAP', company: 'Snap' },
   { id: '002', ticker: 'TSLA', company: 'Tesla' },
@@ -104,16 +112,11 @@ const originalStocksArr = [
   { id: '100', ticker: 'CGC', company: 'Canopy Growth' }
 ];
 
-export const options = {
-  vus: 100, 
-  duration: '5m', 
-};
-
 export default function() {
   let num = Math.floor(Math.random() * 100);
   let stockToTest = originalStocksArr[num].ticker;
 
-  let res = http.get(`http://localhost:8080/api/earnings/${stockToTest}`);
+  let res = http.get(`http://localhost:3002/api/earnings/${stockToTest}`);
 
   check(res, {
     "status was 200": (r) => r.status == 200,

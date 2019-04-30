@@ -19,7 +19,11 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "genzip": "node database/Earning/dataGen.js | gzip -c > database/Earning/writeMe.CSV.gz",
-    "unzipsave": "gunzip -c database/Earning/writeMe.CSV.gz | psql postgres < database/Earning/schema.sql"
+    "unzipsave": "gunzip -c database/Earning/writeMe.CSV.gz | psql postgres < database/Earning/schema.sql",
+    "stressTest": "k6 run server/loadtest/k6.js",
+    "stress5": "k6 run server/loadtest/k6.js && sleep 30 && k6 run server/loadtest/k6.js && sleep 30 && k6 run server/loadtest/k6.js && sleep 30 && k6 run server/loadtest/k6.js && sleep 30 && k6 run server/loadtest/k6.js",
+    "startPG": "pg_ctl -D /usr/local/var/postgres start",
+    "loginAWS": "ssh -i ../../../../.ssh/aws-key.pem ec2-user@ec2-13-56-164-56.us-west-1.compute.amazonaws.com" 
   },
   "jest": {
     "testEnvironment": "node"

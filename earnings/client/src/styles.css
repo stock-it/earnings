@@ -1,0 +1,145 @@
+body {
+    font-family: 'DINProRegular', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'DINProRegular';
+    font-style: normal;
+    font-weight: normal;
+    src: url("./fonts/DINProRegular.otf") format('opentype');
+}
+
+div.analystSuggestionLineEnd{
+ display: inline-block;
+}
+
+span.suggestionPercentage{
+ display: inline-block;
+}
+
+div.analystSuggestionLineFront{
+ display: inline-block;
+ height: 6px;
+ background: black;
+ margin: 0 3px 2px 0;
+ border-radius: 50px 0 0 50px;
+}
+
+div#analystSummaries{
+ display: inline-block;
+ position: relative;
+ margin: 10px 0 0 213px;
+ font-size: 13px;
+}
+
+div.analystSummary{
+ width: 190px;
+ display: inline-block;
+ vertical-align:top;
+ padding: 10px 12px 30px 22px;
+}
+
+div#buySummary{
+ margin: 0 6px 0 0;
+}
+
+div#sellSummary{
+ margin: 0 0 0 6px;
+}
+
+p.summaryTitle{
+ font-size: 15px;
+ margin: 0 0 0 0;
+}
+
+p.summaryMessage{
+ margin: 5px 0 16px 0;
+}
+
+p.summaryQuotationMark{
+ position: absolute;
+ margin: 4px 0 0 -7px;
+}
+
+p.readMore{
+ font-size: 14px;
+ color:#23CE99;
+ margin: -10px 0 0 0;
+ font: 500;
+}
+
+p.analystCompany{
+ color: #8C8C8E;
+}
+
+div.EPS-dateIndex{
+ margin: 0 0 0 45px;  
+ display: inline;
+}
+
+div.EPS-price{
+ margin: 10px 0 23px 0;
+ font-size: 14px;
+ color: #8C8C8E;
+}
+
+div.EPS-date{
+ font-size: 14px;
+ display: inline-block;
+ color: #8C8C8E;
+ margin: 15px 14px 0 14px
+}
+
+span.estCircle{
+ height: 15px;
+ width: 15px;
+ background: rgb(215, 245, 235);
+ position: absolute;
+ border-radius: 50%;
+ margin: 0 0 0 17px;
+}
+
+span.actCircle{
+ height: 15px;
+ width: 15px;
+ background: #23CE99;
+ position: absolute;
+ border-radius: 50%;
+ margin: 0 0 0 17px;
+}
+
+div.EPS-other{
+ display: inline-block;
+ margin: 20px 0 0 80px;
+ font-size: 14px;
+}
+
+span#estimatedCircleExample{
+ height: 15px;
+ width: 15px;
+ background: rgb(215, 245, 235);
+ position: absolute;
+ border-radius: 50%;
+ margin: 20px 0 0 -30px;
+}
+
+span#actualCircleExample{
+ height: 15px;
+ width: 15px;
+ background: #23CE99;
+ position: absolute;
+ border-radius: 50%;
+ margin: 20px 0 0 -30px;
+}
+
+p#Estimated{
+ position: relative;
+ margin: 8px 0 8px 0;
+}
+
+p#Actual{
+ position: relative;
+ margin: 8px 0 8px 0;
+}

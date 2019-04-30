@@ -1,7 +1,7 @@
 require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
-// const cors = require('cors');
+const cors = require('cors');
 // const morgan = require('morgan');
 const path = require('path');
 
@@ -11,7 +11,7 @@ const db = require('../database/index.js');
 const stock = require('./controllers/stock')
 
 // app.use(express.static(`${__dirname}/../public/`));
-// app.use(cors());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(morgan('dev'));
@@ -22,30 +22,29 @@ app.get('/stocks/:tickerID', (req, res) => {
   //   res.status(400).send('Undefined Ticker ID. Please enter search.');
   // }
   // res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
-  let targetItem = req.params.tickerID || 'AAPL';
-  stock.getEarning(targetItem, (err, data) => {
-    if (err) {
-      return res.status(404).send(err)
-    }
-    return res.status(200).json(data)
-  })
+  // let targetItem = req.params.tickerID || 'AAPL';
+  // stock.getEarning(targetItem, (err, data) => {
+  //   if (err) {
+  //     return res.status(404).send(err)
+  //   }
+  //   return res.status(200).json(data)
+  // })
 
 });
 
-app.get('/stocks/earnings', (req, res) => {
-    stock.getEarning('TSLA', (err, data) => {
-      if (err) {
-        return res.status(404).send(err)
-      }
-      return res.status(200).json(data)
-    })
+app.get('/api/earnings', (req, res) => {
+  let targetItem = 'MSFT';
+  stock.getEarning(targetItem, (err, data) => {
+    if (err) return res.sendStatus(404);
+    res.status(200).json(data);
+  })
 });
 
 app.get('/api/earnings/:tickerID', (req, res) => {
-    let targetItem = req.params.tickerID || 'TSLA';
+    let targetItem = req.params.tickerID;
     stock.getEarning(targetItem, (err, data) => {
-      if (err) return res.status(404).send(err)
-      res.status(200).json(data)
+      if (err) return res.sendStatus(404);
+      res.status(200).json(data);
     })
 });
 
