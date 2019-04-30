@@ -19,7 +19,7 @@ class Earnings extends React.Component {
   }
 
   componentDidMount() { 
-    console.log(tickerID)
+    // console.log(tickerID)
     // $.get(`http://${host}:${port}/api/earnings/${tickerID}`, (Data) => {     
     $.get(`/api/earnings/${tickerID}`, (Data) => {     
       this.setState({
