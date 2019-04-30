@@ -6,12 +6,9 @@ import EarningBottomBar from './earningBottomBar.jsx';
 import $ from 'jquery';
 
 // const host = '52.53.224.110';
-// const port = 3002; //port choice for proxy server and all microservices on local machine
-const host = 'localhost';
-const port = 3002; //8080
-//const path = window.location.pathname + /stocks/TSLA;
-//const earnings_id = '700';
-//const ticker = ${ticker || 'AAPL'};
+// const host = 'localhost';
+// const port = 3002; 
+const tickerID = window.location.pathname.split('/')[2];
 
 class Earnings extends React.Component {
   constructor(props) {
@@ -22,9 +19,9 @@ class Earnings extends React.Component {
   }
 
   componentDidMount() { 
-    // console.log(window.location.href + '/api/earnings/');
-    $.get(`http://${host}:${port}/api/earnings/AAPL`, (Data) => {     
-    // $.get('//front-end-capstone.herokuapp.com/data/earnings', (Data) => {
+    // console.log(tickerID)
+    // $.get(`http://${host}:${port}/api/earnings/${tickerID}`, (Data) => {     
+    $.get(`/api/earnings/${tickerID}`, (Data) => {     
       this.setState({
         earnings: Data,
       });
