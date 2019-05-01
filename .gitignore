@@ -5,3 +5,5 @@ grunt-aws.json
 *.csv
 .env
 newrelic.js
+node_modules/
+.vscode
