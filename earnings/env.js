@@ -1,0 +1,3 @@
+var NEW_RELIC_LICENSE_KEY = '32eb09a027d1c1ee024fc79827e43aa8fa546c18';
+
+export default NEW_RELIC_LICENSE_KEY;
