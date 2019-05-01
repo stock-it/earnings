@@ -4,3 +4,4 @@ grunt-aws.json
 *.gz
 *.csv
 .env
+newrelic.js
