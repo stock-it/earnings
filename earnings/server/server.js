@@ -17,18 +17,18 @@ app.use(bodyParser.json());
 // app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/stocks/:tickerID', (req, res) => {
+app.use('/stocks/:tickerID', (req, res) => {
   // if (req.params.tickerID === undefined) {
   //   res.status(400).send('Undefined Ticker ID. Please enter search.');
   // }
   // res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
-  // let targetItem = req.params.tickerID || 'AAPL';
-  // stock.getEarning(targetItem, (err, data) => {
-  //   if (err) {
-  //     return res.status(404).send(err)
-  //   }
-  //   return res.status(200).json(data)
-  // })
+  let targetItem = req.params.tickerID || 'AAPL';
+  stock.getEarning(targetItem, (err, data) => {
+    if (err) {
+      return res.status(404).send(err)
+    }
+    return res.status(200).json(data)
+  })
 
 });
 
