@@ -12,3 +12,4 @@ const pool = new Pool({
   })
 
 module.exports = pool;
+//host: 'ec2-54-183-11-4.us-west-1.compute.amazonaws.com',

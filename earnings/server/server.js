@@ -17,6 +17,17 @@ app.use(bodyParser.json());
 // app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
+
+app.use('/', (req, res) => {
+  let targetItem = req.params.tickerID || 'AAPL';
+  stock.getEarning(targetItem, (err, data) => {
+    if (err) {
+      return res.status(404).send(err)
+    }
+    return res.status(200).json(data)
+  })
+});
+
 app.use('/stocks/:tickerID', (req, res) => {
   // if (req.params.tickerID === undefined) {
   //   res.status(400).send('Undefined Ticker ID. Please enter search.');

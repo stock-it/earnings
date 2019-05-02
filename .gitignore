@@ -3,7 +3,13 @@ grunt-aws.json
 .gitignore
 *.gz
 *.csv
-.env
 newrelic.js
 node_modules/
+
+newrelic_agent.log
+.coverage_data
+.DS_Store
+npm-debug.log
+*.key
 .vscode
+test/**/package-lock.json
