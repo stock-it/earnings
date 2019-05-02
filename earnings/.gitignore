@@ -1,12 +1,7 @@
 grunt-aws.json
-.env
 benchmarkPG.sql
 writeMe.CSV
-writeMe.CSV.gz
 OneStock.CSV
-OneStock.CSV.gz
-*node_modules/*
-*/*node_modules/*
 node_modules/
 public/dist/
 public/fonts/
