@@ -1,13 +1,8 @@
-/* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import EarningsChartFrame from './earningsChartFrame.jsx';
 import EarningBottomBar from './earningBottomBar.jsx';
 import $ from 'jquery';
 
-// const host = '52.53.224.110';
-// const host = 'localhost';
-// const port = 3002; 
 const tickerID = window.location.pathname.split('/')[2];
 
 class Earnings extends React.Component {
@@ -31,7 +26,7 @@ class Earnings extends React.Component {
   render() {
     if (this.state.earnings.length === 0) {
       return (
-        <div>"Loading..."</div>
+        <div>Please search for stock by /stocks/$tickerID using the GET route /api/earnings/$tickerID </div>
         );
     } else {
       const earningsData = this.state.earnings;

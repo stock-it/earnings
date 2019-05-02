@@ -2,48 +2,29 @@ require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const morgan = require('morgan');
 const path = require('path');
+// const morgan = require('morgan');
 
 const app = express();
 const port = process.env.PORT || 3002;
 const db = require('../database/index.js');
 const stock = require('./controllers/stock')
 
-// app.use(express.static(`${__dirname}/../public/`));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(morgan('dev'));
+// app.use(express.static(`${__dirname}/../public/`));
 app.use(express.static(path.join(__dirname, '../public')));
 
-
-app.use('/', (req, res) => {
-  let targetItem = req.params.tickerID || 'AAPL';
-  stock.getEarning(targetItem, (err, data) => {
-    if (err) {
-      return res.status(404).send(err)
-    }
-    return res.status(200).json(data)
-  })
-});
-
 app.use('/stocks/:tickerID', (req, res) => {
-  // if (req.params.tickerID === undefined) {
-  //   res.status(400).send('Undefined Ticker ID. Please enter search.');
-  // }
-  // res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
-  let targetItem = req.params.tickerID || 'AAPL';
-  stock.getEarning(targetItem, (err, data) => {
-    if (err) {
-      return res.status(404).send(err)
-    }
-    return res.status(200).json(data)
-  })
-
+  if (req.params.tickerID === undefined) {
+    res.status(400).send('Undefined Ticker ID. Please enter search.');
+  }
+  res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-app.get('/api/earnings', (req, res) => {
+app.get('/api/earnings/undefined', (req, res) => {
   let targetItem = 'MSFT';
   stock.getEarning(targetItem, (err, data) => {
     if (err) return res.sendStatus(404);
@@ -98,3 +79,4 @@ app.delete('/stocks/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
+

@@ -3,5 +3,4 @@ benchmarkPG.sql
 writeMe.CSV
 OneStock.CSV
 node_modules/
-public/dist/
-public/fonts/
+*.txt
