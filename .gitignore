@@ -3,9 +3,8 @@ grunt-aws.json
 .gitignore
 *.gz
 *.csv
+*.txt
 newrelic.js
-node_modules/
-
 newrelic_agent.log
 .coverage_data
 .DS_Store
