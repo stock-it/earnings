@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "author": "Gary & Vickie",
+  "author": "Vickie",
   "license": "ISC",
   "scripts": {
     "start": "node server/server.js",
