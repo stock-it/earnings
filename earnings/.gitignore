@@ -8,3 +8,5 @@ OneStock.CSV.gz
 *node_modules/*
 */*node_modules/*
 node_modules/
+public/dist/
+public/fonts/
